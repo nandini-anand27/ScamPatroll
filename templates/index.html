@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScamPatrol | Catch the Scam</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="/" class="logo">
+      <span class="logo-icon">✳</span>
+      Scam<span>Patrol</span>
+    </a>
+    <span class="nav-label">YOUR DIGITAL SIDEKICK ✦</span>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow"> PAUSE.CHECK.PROCEED</span>
+
+        <h1>
+          Catch the scam<br>
+          before it catches <span>YOU!</span>
+        </h1>
+
+        <p class="hero-text">
+          Suspicious message? Sketchy link? Drop it below.
+          Let's uncover those digital red flags together.
+        </p>
+
+        <a href="#scanner" class="primary-button">
+          Investigate a message <span>↘</span>
+        </a>
+
+        <p class="tiny-note">✦ Think before you click.</p>
+      </div>
+
+      <div class="hero-art">
+        <img
+          src="{{ url_for('static', filename='assets/scam-patrol-crew.png') }}"
+          alt="A suspicious girl and her cat checking online scams"
+        >
+        <div class="art-caption">
+          <span>♡</span>
+          Trust your instincts.<br>
+          Verify the link.
+        </div>
+      </div>
+    </section>
+
+    <section class="scanner-section" id="scanner">
+      <div class="section-heading">
+        <span class="eyebrow">✦ THE RED FLAG DETECTOR</span>
+        <h2>Hmm, let's investigate.</h2>
+        <p>Paste a suspicious message or URL. We'll check for warning signs.</p>
+      </div>
+
+      <div class="scanner-card">
+        <div class="scanner-top">
+          <span class="scanner-dot"></span>
+          <span class="scanner-dot"></span>
+          <span class="scanner-dot"></span>
+          <span class="scanner-title">scam_scanner.exe</span>
+          <span class="scanner-status">● READY</span>
+        </div>
+
+        <form id="analyzeForm">
+          <label for="messageInput">YOUR SUSPICIOUS MESSAGE OR LINK</label>
+
+          <textarea
+            id="messageInput"
+            name="text"
+            placeholder="Paste that sus message here... 👀"
+            required
+          ></textarea>
+
+          <div class="form-bottom">
+            <span class="input-hint">✦ Don't click it. Check it.</span>
+            <button type="submit" id="analyzeButton" class="primary-button">
+              Analyze for red flags <span>→</span>
+            </button>
+          </div>
+        </form>
+
+        <div id="errorMessage" class="error-message" hidden></div>
+
+        <section id="resultSection" class="result-section" hidden>
+          <div class="result-header">
+            <span class="eyebrow">✦ INVESTIGATION REPORT</span>
+            <span id="resultBadge" class="result-badge">ANALYZED</span>
+          </div>
+
+          <h3 id="verdict">Analysis complete</h3>
+          <p id="resultDescription"></p>
+
+          <div class="score-row">
+            <span>Suspicion score</span>
+            <strong id="riskPercentage">0%</strong>
+          </div>
+
+          <div class="progress-track">
+            <div id="riskBar" class="progress-fill"></div>
+          </div>
+
+          <div class="result-subheading">🚩 Safety issues found</div>
+          <ul id="flagsList" class="flags-list"></ul>
+
+          <div class="advice-box">
+            <strong>🛡️ What should you do?</strong>
+            <p id="adviceText"></p>
+          </div>
+
+          <p class="disclaimer">
+            This is a basic rule-based checker, not a guarantee.
+            A low score does not mean a message or link is safe.
+          </p>
+        </section>
+      </div>
+    </section>
+
+    <section class="red-flags-section">
+      <div class="section-heading">
+        <span class="eyebrow">🚩 KNOW THE SIGNS</span>
+        <h2>Scammers hate a smart baddie.</h2>
+        <p>Keep an eye out for these classic red flags.</p>
+      </div>
+
+      <div class="tips-grid">
+        <article class="tip-card pink-card">
+          <span class="tip-icon">⏰</span>
+          <h3>Fake urgency</h3>
+          <p>"Act now or your account will be blocked!" Pressure and time-sensitive requests are warning signs.</p>
+          <span class="card-doodle">DON'T RUSH! CONFIRM IT FIRST!</span>
+        </article>
+
+        <article class="tip-card yellow-card">
+          <span class="tip-icon">🎁</span>
+          <h3>Too-good-to-be-true offers</h3>
+          <p>Unexpected prizes and unbelievable rewards deserve EXTRA investigation.</p>
+          <span class="card-doodle">SUS ALERT</span>
+        </article>
+
+        <article class="tip-card green-card">
+          <span class="tip-icon">🔐</span>
+          <h3>Secret stealing</h3>
+          <p>Never share your password, PIN, or OTP with someone who contacts you.</p>
+          <span class="card-doodle">KEEP IT PRIVATE</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="final-reminder">
+      <span class="reminder-star">✳</span>
+      <h2>Pause. Check. Protect.</h2>
+      <p>One second of checking can save you a lot of trouble.</p>
+      <a href="#scanner" class="secondary-button">Check a message ↑</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="/" class="logo">Scam<span>Patrol</span> ✳</a>
+    <p>Catch the scam before it catches you.</p>
+    <span class="footer-note">STAY CURIOUS. STAY CAUTIOUS.</span>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
