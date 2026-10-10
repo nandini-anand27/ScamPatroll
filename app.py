@@ -681,8 +681,13 @@ def analyze_message(message):
         for warning in check_lookalikes(host):
             add_flag(warning, 35)
 
+        
         for warning in check_url_security(item):
-            add_flag(warning, 10)
+            if isinstance(warning, dict):
+                add_flag(warning["warning"], warning["points"])
+            else:
+                add_flag(warning, 10)
+
 
         info = check_domain_age(host)
 
