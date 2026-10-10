@@ -561,6 +561,13 @@ def check_url_security(url_info):
             "warning": "Unsecured HTTP connection",
         "points": 25
     })
+        
+    if host.endswith(".invalid") or host == "invalid":
+        warnings.append({
+            "warning": "Reserved .invalid domain detected",
+            "points": 25
+        })
+
 
     if len(host.split(".")) >= 5:
         warnings.append(
@@ -665,6 +672,12 @@ def analyze_message(message):
     for pattern, warning, points in SCAM_PATTERNS:
         if re.search(pattern, text, re.IGNORECASE):
             add_flag(warning, points)
+            
+    # Indian scam phrase detection
+    for pattern, warning, points in INDIAN_SCAM_PATTERNS:
+        if re.search(pattern, text, re.IGNORECASE):
+            add_flag(warning, points)
+
 
     urls = extract_urls(message)
 
